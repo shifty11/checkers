@@ -34,6 +34,12 @@ const (
 	MovePlayedEventWinner    = "winner"
 )
 
+const (
+	GameRejectedEventType      = "game-rejected"
+	GameRejectedEventCreator   = "creator"
+	GameRejectedEventGameIndex = "game-index"
+)
+
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
