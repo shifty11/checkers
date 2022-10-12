@@ -1,11 +1,10 @@
 package types
 
 import (
-	"testing"
-
 	"github.com/alice/checkers/testutil/sample"
 	sdkerrors "github.com/cosmos/cosmos-sdk/types/errors"
 	"github.com/stretchr/testify/require"
+	"testing"
 )
 
 func TestMsgCreateGame_ValidateBasic(t *testing.T) {
