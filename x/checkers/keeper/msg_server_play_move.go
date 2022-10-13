@@ -42,6 +42,11 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 		return nil, sdkerrors.Wrapf(types.ErrNotPlayerTurn, "%s", player)
 	}
 
+	err = k.Keeper.CollectWager(ctx, &storedGame)
+	if err != nil {
+		return nil, err
+	}
+
 	captured, moveErr := game.Move(
 		rules.Pos{
 			X: int(msg.FromX),
@@ -69,6 +74,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	} else {
 		k.Keeper.RemoveFromFifo(ctx, &storedGame, &systemInfo)
 		storedGame.Board = ""
+		k.Keeper.MustPayWinnings(ctx, &storedGame)
 	}
 
 	storedGame.MoveCount++
