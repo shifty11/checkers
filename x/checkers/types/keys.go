@@ -25,6 +25,8 @@ const (
 	GameCreatedEventGameIndex = "game-index"       // What game is relevant
 	GameCreatedEventBlack     = "black"            // Is it relevant to me?
 	GameCreatedEventRed       = "red"              // Is it relevant to me?
+	GameCreatedEventWager     = "wager"
+	GameCreatedEventDenom     = "denom"
 )
 
 const (
@@ -65,10 +67,6 @@ const (
 	GameForfeitedEventGameIndex = "game-index"
 	GameForfeitedEventWinner    = "winner"
 	GameForfeitedEventBoard     = "board"
-)
-
-const (
-	GameCreatedEventWager = "wager"
 )
 
 const (
