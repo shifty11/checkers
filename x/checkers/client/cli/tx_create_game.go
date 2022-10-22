@@ -14,7 +14,7 @@ var _ = strconv.Itoa(0)
 
 func CmdCreateGame() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-game [black] [red] [wager]",
+		Use:   "create-game [black] [red] [wager] [denom]",
 		Short: "Broadcast message createGame",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) (err error) {
