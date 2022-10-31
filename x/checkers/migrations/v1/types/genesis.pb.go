@@ -5,6 +5,7 @@ package types
 
 import (
 	fmt "fmt"
+	"github.com/alice/checkers/x/checkers/types"
 	_ "github.com/gogo/protobuf/gogoproto"
 	proto "github.com/gogo/protobuf/proto"
 	io "io"
@@ -25,9 +26,9 @@ const _ = proto.GoGoProtoPackageIsVersion3 // please upgrade the proto package
 
 // GenesisState defines the checkers module's genesis state.
 type GenesisState struct {
-	Params         Params       `protobuf:"bytes,1,opt,name=params,proto3" json:"params"`
-	SystemInfo     SystemInfo   `protobuf:"bytes,2,opt,name=systemInfo,proto3" json:"systemInfo"`
-	StoredGameList []StoredGame `protobuf:"bytes,3,rep,name=storedGameList,proto3" json:"storedGameList"`
+	Params         types.Params       `protobuf:"bytes,1,opt,name=params,proto3" json:"params"`
+	SystemInfo     types.SystemInfo   `protobuf:"bytes,2,opt,name=systemInfo,proto3" json:"systemInfo"`
+	StoredGameList []types.StoredGame `protobuf:"bytes,3,rep,name=storedGameList,proto3" json:"storedGameList"`
 }
 
 func (m *GenesisState) Reset()         { *m = GenesisState{} }
@@ -63,21 +64,21 @@ func (m *GenesisState) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_GenesisState proto.InternalMessageInfo
 
-func (m *GenesisState) GetParams() Params {
+func (m *GenesisState) GetParams() types.Params {
 	if m != nil {
 		return m.Params
 	}
-	return Params{}
+	return types.Params{}
 }
 
-func (m *GenesisState) GetSystemInfo() SystemInfo {
+func (m *GenesisState) GetSystemInfo() types.SystemInfo {
 	if m != nil {
 		return m.SystemInfo
 	}
-	return SystemInfo{}
+	return types.SystemInfo{}
 }
 
-func (m *GenesisState) GetStoredGameList() []StoredGame {
+func (m *GenesisState) GetStoredGameList() []types.StoredGame {
 	if m != nil {
 		return m.StoredGameList
 	}
@@ -328,7 +329,7 @@ func (m *GenesisState) Unmarshal(dAtA []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.StoredGameList = append(m.StoredGameList, StoredGame{})
+			m.StoredGameList = append(m.StoredGameList, types.StoredGame{})
 			if err := m.StoredGameList[len(m.StoredGameList)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
